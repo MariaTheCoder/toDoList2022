@@ -1,8 +1,8 @@
 const listContainer = document.getElementById("list-container");
+const inputItem = document.getElementById("input-item");
 const addItemBtn = document.getElementById("create-list-button");
 const clearListBtn = document.getElementById("clear-list-button");
 const deleteLastItemBtn = document.getElementById("delete-last-item");
-const inputItem = document.getElementById("input-item");
 
 addItemBtn.addEventListener("click", () => {
   if (inputItem.value === "" && inputItem.required === true) {
