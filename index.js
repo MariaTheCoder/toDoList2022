@@ -11,10 +11,10 @@ addItemBtn.addEventListener("click", () => {
     if (isElementEmpty(listContainer)) {
       addHeader();
       const itemList = createItemList();
-      addItemToList(itemList);
+      addItem(itemList);
     } else {
       const itemList = document.getElementById("to-do-list");
-      addItemToList(itemList);
+      addItem(itemList);
     }
   }
 });
@@ -22,6 +22,21 @@ addItemBtn.addEventListener("click", () => {
 clearListBtn.addEventListener("click", clearList);
 
 deleteLastItemBtn.addEventListener("click", removeLastListItem);
+
+function editItem(element) {
+  // store the innerText value of selected element for later use
+  const innerText = element.innerText;
+
+  // create input element and add attributes. Set value to innerText previously saved
+  const editMode = document.createElement("input");
+  editMode.setAttribute("type", "text");
+  editMode.setAttribute("class", "input");
+  editMode.value = innerText;
+
+  // empty innerHTML of selected element and add newly created input field as innerHTML
+  element.innerHTML = "";
+  element.appendChild(editMode);
+}
 
 function removeLastListItem() {
   const itemList = document.getElementById("to-do-list");
@@ -32,9 +47,10 @@ function clearList() {
   listContainer.innerHTML = "";
 }
 
-function addItemToList(listElement) {
+function addItem(listElement) {
   newItem = document.createElement("li");
   newItem.innerText = inputItem.value;
+  newItem.addEventListener("click", () => editItem(newItem));
   listElement.appendChild(newItem);
 }
 
