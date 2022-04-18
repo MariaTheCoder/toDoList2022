@@ -9,7 +9,14 @@
   </head>
   <body>
     <div class="form">
-      <input id="input-item" type="text" class="name" />
+      <input
+        id="input-item"
+        type="text"
+        class="input"
+        minlength="1"
+        maxlength="20"
+        required
+      />
       <div id="button-containers" class="button-containers">
         <button id="create-list-button">Add to list</button>
         <button id="delete-last-item">Delete last item</button>

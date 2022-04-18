@@ -5,13 +5,17 @@ const deleteLastItemBtn = document.getElementById("delete-last-item");
 const inputItem = document.getElementById("input-item");
 
 addItemBtn.addEventListener("click", () => {
-  if (isElementEmpty(listContainer)) {
-    addHeader();
-    const itemList = createItemList();
-    addItemToList(itemList);
+  if (inputItem.value === "" && inputItem.required === true) {
+    return alert("please fill out input field");
   } else {
-    const itemList = document.getElementById("to-do-list");
-    addItemToList(itemList);
+    if (isElementEmpty(listContainer)) {
+      addHeader();
+      const itemList = createItemList();
+      addItemToList(itemList);
+    } else {
+      const itemList = document.getElementById("to-do-list");
+      addItemToList(itemList);
+    }
   }
 });
 
