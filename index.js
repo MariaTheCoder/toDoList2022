@@ -1,6 +1,7 @@
 const listContainer = document.getElementById("list-container");
 const addItemBtn = document.getElementById("create-list-button");
 const clearListBtn = document.getElementById("clear-list-button");
+const deleteLastItemBtn = document.getElementById("delete-last-item");
 const inputItem = document.getElementById("input-item");
 
 addItemBtn.addEventListener("click", () => {
@@ -15,6 +16,13 @@ addItemBtn.addEventListener("click", () => {
 });
 
 clearListBtn.addEventListener("click", clearList);
+
+deleteLastItemBtn.addEventListener("click", removeLastListItem);
+
+function removeLastListItem() {
+  const itemList = document.getElementById("to-do-list");
+  itemList.removeChild(itemList.lastChild);
+}
 
 function clearList() {
   listContainer.innerHTML = "";
