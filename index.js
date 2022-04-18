@@ -1,9 +1,9 @@
 const listContainer = document.getElementById("list-container");
 const addItemBtn = document.getElementById("create-list-button");
+const clearListBtn = document.getElementById("clear-list-button");
 const inputItem = document.getElementById("input-item");
 
 addItemBtn.addEventListener("click", () => {
-  console.log(isElementEmpty(listContainer));
   if (isElementEmpty(listContainer)) {
     addHeader();
     const itemList = createItemList();
@@ -12,8 +12,13 @@ addItemBtn.addEventListener("click", () => {
     const itemList = document.getElementById("to-do-list");
     addItemToList(itemList);
   }
-  console.log(listContainer.children);
 });
+
+clearListBtn.addEventListener("click", clearList);
+
+function clearList() {
+  listContainer.innerHTML = "";
+}
 
 function addItemToList(listElement) {
   newItem = document.createElement("li");
